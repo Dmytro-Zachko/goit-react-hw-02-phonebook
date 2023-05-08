@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Input,Button,Finder } from "./Filter.styled";
+import { Input, Button, Finder } from "./Filter.styled";
+import PropTypes from 'prop-types';
 
 export const Filter = ({ value, OnChange, Onclick }) => {
     return ( <form action="">
@@ -11,4 +12,10 @@ export const Filter = ({ value, OnChange, Onclick }) => {
         <Button onClick={Onclick} >Clear</Button>
    </form> )
     
+}
+
+Filter.propTypes = {
+    value: PropTypes.string.isRequired,
+    onchange: PropTypes.func,
+    onDelete: PropTypes.func,
 }

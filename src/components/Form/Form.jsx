@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { nanoid } from "nanoid";
-import { FormWrapper,Button,Input } from "./Form.styled";
+import { FormWrapper, Button, Input } from "./Form.styled";
+import PropTypes from 'prop-types';
   
 export class Form extends Component {
     state = {
@@ -72,4 +73,14 @@ const {name, number} = this.state
           </form>
       )
     }
+}
+
+Form.propTypes = {
+  contact: PropTypes.arrayOf(
+    PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+  })),
+  addContact: PropTypes.func,
 }

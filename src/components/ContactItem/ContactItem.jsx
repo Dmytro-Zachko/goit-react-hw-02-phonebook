@@ -1,5 +1,6 @@
 import React from "react";
-import { Button } from "./ContactItem.styled";
+import { Button, Item } from "./ContactItem.styled";
+import PropTypes from 'prop-types';
 
 export const ContactItem = ({ contact, onDelete }) => {
     const { id, name, number } = contact;
@@ -7,7 +8,7 @@ export const ContactItem = ({ contact, onDelete }) => {
   return (
     <>
       <li>
-        <span>{name}</span>:<span>{number}</span>
+        <span>{name}</span>:<Item>{number}</Item>
 
         <Button type="button" onClick={() => onDelete(id)}>
           Delete
@@ -16,3 +17,13 @@ export const ContactItem = ({ contact, onDelete }) => {
     </>
   );
 };
+
+ContactItem.propTypes = {
+ contact: PropTypes.arrayOf(
+    PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+  })),
+  onDelete: PropTypes.func,
+}

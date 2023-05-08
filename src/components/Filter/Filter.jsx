@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Input, Button, Finder } from "./Filter.styled";
 import PropTypes from 'prop-types';
 
